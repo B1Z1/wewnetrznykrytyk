@@ -1,0 +1,30 @@
+// Colors:
+
+$mainGradientColor: linear-gradient(140deg, #FFBD4A, #FFCC00);
+$mainColor: #42495B;
+$mainLightColor: #ffffff;
+$secondaryColor: #7A839E;
+$primaryColor: #FFBD4A;
+$primaryGreenColor: #41CEDA;
+
+// Typography:
+$default: 16;
+
+$defaultPX: #{$default}px;
+$h1: #{74 / $default}rem;
+$h2: #{50 / $default}rem;
+$h3: #{24 / $default}rem;
+$h4: #{20 / $default}rem;
+$h5: #{18 / $default}rem;
+$small: #{14 / $default}rem;
+$extraSmall: #{12 / $default}rem;
+
+// XS:
+$h1XS: #{48 / $default}rem;
+$h2XS: #{32 / $default}rem;
+
+// Breakpoints:
+$xl: 1920px;
+$lg: 1540px;
+$md: 768px;
+$xs: 360px;

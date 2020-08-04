@@ -1,0 +1,175 @@
+@use "./variables" as *;
+
+.hero-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  transition-property: opacity, visibility;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  pointer-events: none;
+
+  &__list {
+    list-style: disc;
+    padding-left: 18px;
+  }
+
+  &__paragraph {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__active {
+    opacity: 1;
+    pointer-events: all;
+
+    .hero-popup {
+      &__img-wrapper,
+      &__content-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: auto;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img-wrapper {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 500px;
+    margin-right: 32px;
+    border-radius: 32px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+
+    @media only screen and (min-width: $md) {
+      display: block;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    background-color: $mainLightColor;
+    opacity: 0;
+    transform: translateY(10px);
+    transition-property: opacity, transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+
+    @media only screen and (min-width: $md) {
+      width: 600px;
+      height: 90%;
+      max-height: 700px;
+      border-radius: 32px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  &__fullname {
+    font-size: $h3;
+  }
+
+  &__profession {
+    color: $primaryGreenColor;
+    font-size: $small;
+    margin-bottom: 18px;
+  }
+
+  &__description-wrapper {
+    position: relative;
+    height: 65%;
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: $md) {
+      height: 80%;
+    }
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 24px;
+      z-index: 1;
+    }
+
+    &:after {
+      bottom: -4px;
+      background: rgb(255, 255, 255);
+      background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &:before {
+      top: 0;
+      background: rgb(255, 255, 255);
+      background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+
+  &__description {
+    position: relative;
+    height: 100%;
+    font-family: Lato;
+    line-height: 1.4em;
+    overflow-y: auto;
+  }
+
+  &__button {
+    justify-self: flex-end;
+    align-self: flex-start;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
