@@ -173,7 +173,7 @@ button {
   position: relative;
   margin-bottom: 200px;
 
-  @media only screen and (min-width: $lg) {
+  @media only screen and (min-width: $md) {
     height: 100vh;
     margin-bottom: 128px;
   }
@@ -200,6 +200,7 @@ button {
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
     position: relative;
     margin: auto;
 
@@ -423,12 +424,12 @@ button {
   flex-wrap: wrap;
   height: 100%;
   border-radius: 32px;
-  box-shadow: 0 0 32px transparentize($mainColor, 0.88);
+  box-shadow: none;
   overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: none;
+    box-shadow: 0 0 32px transparentize($mainColor, 0.88);
   }
 
   &__img-wrapper {
@@ -469,12 +470,18 @@ button {
     @media only screen and (min-width: $lg) {
       flex: 0 0 calc(100% - 170px);
       max-width: calc(100% - 170px);
-      padding: 40px 16px 48px 32px;
+      padding: 32px 16px 48px 32px;
     }
+  }
+
+  &__date {
+    font-size: $extraSmall;
+    color: $primaryGreenColor;
   }
 
   &__fullname {
     font-size: $h3;
+    margin-top: -10px;
   }
 
   &__profession {
